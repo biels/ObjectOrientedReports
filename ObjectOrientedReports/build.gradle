@@ -9,6 +9,8 @@
 
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -29,3 +31,21 @@ dependencies {
     // 'test.useTestNG()' to your build script.
     testCompile 'junit:junit:4.12'
 }
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            groupId 'com.biel.oor'
+            artifactId 'ObjectOrientedReports'
+            version '1.0.0'
+
+            from components.java
+        }
+    }
+}
+
+publishToMavenLocal.group = "publishing"
+
+def javaVersion = JavaVersion.VERSION_1_7;
+sourceCompatibility = javaVersion;
+targetCompatibility = javaVersion;
