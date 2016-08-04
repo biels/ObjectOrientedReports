@@ -16,8 +16,11 @@ public class ProductRequest {
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
-	public double getTotalPrice(){
+	protected double getTotalPrice(){
 		return product.getPrice() * amount;
+	}
+	public String getTotalPriceFormatted(){
+		return InvoiceReportController.formatCurrencyField(getTotalPrice());
 	}
 	
 }

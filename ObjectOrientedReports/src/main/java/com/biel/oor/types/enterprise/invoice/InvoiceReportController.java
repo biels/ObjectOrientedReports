@@ -14,7 +14,7 @@ public abstract class InvoiceReportController extends EnterpriseReportController
 	//Data
 	private CompanyInfo recieverCompanyInfo = new CompanyInfo();
 	private ArrayList<ProductRequest> productRequestList = new ArrayList<ProductRequest>();
-	
+	private ArrayList<String> notes = new ArrayList<String>();
 	//Logic - Calculate totals and prepare information for display
 	protected double getTotal(){
 		int s = 0;
@@ -31,8 +31,21 @@ public abstract class InvoiceReportController extends EnterpriseReportController
 	}
 	
 	//Display - Provide information ready to display, without caring about the layout
-	public String getFormattedTotal(){
+	public String getTotalFormatted(){
 		return formatCurrencyField(getTotal());
+	}
+	
+	public CompanyInfo getRecieverCompanyInfo() {
+		return recieverCompanyInfo;
+	}
+	public void setRecieverCompanyInfo(CompanyInfo recieverCompanyInfo) {
+		this.recieverCompanyInfo = recieverCompanyInfo;
+	}
+	public ArrayList<ProductRequest> getProductRequestList() {
+		return productRequestList;
+	}
+	public void setProductRequestList(ArrayList<ProductRequest> productRequestList) {
+		this.productRequestList = productRequestList;
 	}
 	
 }

@@ -10,8 +10,13 @@ public abstract class EnterpriseReportController extends ReportController implem
 	private Date date = new Date();
 	@Override
 	public Date getDate() {
-		// TODO Auto-generated method stub
 		return date;
+	}
+	public CompanyInfo getCompanyInfo() {
+		return companyInfo;
+	}
+	public void setCompanyInfo(CompanyInfo companyInfo) {
+		this.companyInfo = companyInfo;
 	}
 	
 }

@@ -7,10 +7,11 @@ public class Product {
 	private String description;
 	private double price;
 	private double discountRate = 0F;
-	private double taxRate = 0F;
 	//Support for nested products
 	private ArrayList<Product> products = new ArrayList<Product>();
 	
+	//Edit getters to match view's needs. Add getters for priceBeforeDiscount... 
+	//Maybe merge product and productrequest into InvoiceProduct
 	public String getName() {
 		return name;
 	}
@@ -23,7 +24,7 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public double getPrice() {
+	protected double getPrice() {
 		return price;
 	}
 	public void setPrice(double price) {
@@ -35,17 +36,14 @@ public class Product {
 	public void setDiscountRate(double discountRate) {
 		this.discountRate = discountRate;
 	}
-	public double getTaxRate() {
-		return taxRate;
-	}
-	public void setTaxRate(double taxRate) {
-		this.taxRate = taxRate;
-	}
 	public ArrayList<Product> getProducts() {
 		return products;
 	}
 	public void setProducts(ArrayList<Product> products) {
 		this.products = products;
 	}
-
+	
+	public String getPriceFormatted(){
+		return InvoiceReportController.formatCurrencyField(getPrice());
+	}
 }
