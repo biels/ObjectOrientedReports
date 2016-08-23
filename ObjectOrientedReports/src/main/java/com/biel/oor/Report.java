@@ -54,7 +54,6 @@ public abstract class Report {
 		public String getGreeting(){
 			return MessageFormat.format("Hello {0}", m.getUsername());
 		}
-		
 	}
 	public abstract class View extends XHTMLReport{
 
